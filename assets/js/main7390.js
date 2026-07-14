@@ -559,9 +559,9 @@ $(document).ready(function () {
     });
   });
 
-  const $logo = $("#auralis_logo"); // Adjust if your logo has a different ID
+  const $logo = $("#auralis_logo");
   const defaultLogo = "assets/images/TVS-Auralis.png";
-  const scrolledLogo = "assets/images/Auralis-White-2.png";
+  const scrolledLogo = "assets/images/TVS-Auralis.png";
 
   let isScrolled = false;
 
