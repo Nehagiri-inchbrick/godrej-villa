@@ -592,7 +592,7 @@ $(document).ready(function () {
 
   toggleActive(".plan_tab", "active", ".plan_wrapper");
 
-  if ($(window).width() >= 767) {
+  if ($(window).width() >= 992) {
   // Manual click functionality
   $(".prj_btn").on("click", function () {
     var targetSelector = $(this).data("target");
@@ -637,14 +637,33 @@ $(document).ready(function () {
 }
 
 
-  if ($(window).width() <= 767) {
+  if (window.matchMedia("(max-width: 991px)").matches) {
     var $carousel = $(".highlights_wrapper");
     if ($carousel.length && !$carousel.hasClass("owl-loaded")) {
       $carousel.find(".highlights_img").css({
         position: "relative",
         opacity: 1,
         left: "auto",
+        top: "auto",
+        right: "auto",
+        bottom: "auto",
         display: "block",
+        transform: "none",
+        margin: 0,
+        height: "auto",
+      });
+      $carousel.find(".highlights_img img").each(function () {
+        var $img = $(this);
+        // Force decode for Android WebView / Chrome
+        if (this.decode) {
+          this.decode().catch(function () {});
+        }
+        $img.css({
+          width: "100%",
+          height: "260px",
+          objectFit: "cover",
+          display: "block",
+        });
       });
       $carousel.addClass("owl-carousel owl-theme").owlCarousel({
         loop: true,
@@ -659,6 +678,8 @@ $(document).ready(function () {
         autoplayHoverPause: true,
         touchDrag: true,
         mouseDrag: true,
+        autoHeight: false,
+        responsiveRefreshRate: 100,
       });
     }
   }

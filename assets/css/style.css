@@ -1110,6 +1110,7 @@ form#banner_form.desktop {
   .highlights_visual {
     margin-bottom: 0;
     order: 0;
+    width: 100%;
   }
 
   .highlights_visual::before,
@@ -1121,25 +1122,34 @@ form#banner_form.desktop {
     display: none !important;
   }
 
-  .highlights_wrapper {
-    height: 300px !important;
-    border-radius: 14px !important;
-  }
-}
-
-@media (max-width: 767px) {
-  /* Owl carousel needs relative slides — desktop absolute stack causes blank */
+  /* Mobile/tablet: show carousel slides properly (Android-safe) */
   #highlights .highlights_wrapper,
   #highlights .highlights_wrapper.owl-carousel {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     height: auto !important;
-    min-height: 240px !important;
-    overflow: hidden !important;
+    min-height: 0 !important;
     border-radius: 14px !important;
+    overflow: hidden !important;
+    background: #1a2b1f !important;
+    box-shadow: 0 16px 40px rgba(27, 46, 29, 0.12) !important;
   }
 
   #highlights .highlights_wrapper .owl-stage-outer {
     overflow: hidden !important;
     border-radius: 14px;
+  }
+
+  #highlights .highlights_wrapper .owl-stage {
+    display: flex !important;
+    align-items: stretch !important;
+  }
+
+  #highlights .highlights_wrapper .owl-item {
+    float: none !important;
+    display: flex !important;
   }
 
   #highlights .highlights_img,
@@ -1155,16 +1165,31 @@ form#banner_form.desktop {
     transform: none !important;
     display: block !important;
     width: 100% !important;
-    height: 240px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
     z-index: 1 !important;
+    overflow: hidden !important;
   }
 
   #highlights .highlights_img img,
-  #highlights .owl-item img {
+  #highlights .owl-item img,
+  #highlights .owl-item .highlights_img img {
     width: 100% !important;
-    height: 240px !important;
+    max-width: 100% !important;
+    height: 260px !important;
+    min-height: 220px !important;
     object-fit: cover !important;
+    object-position: center center !important;
     display: block !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  #highlights .highlights_img::after {
+    border-radius: 0 !important;
   }
 
   #highlights .highlight-content.mobile {
@@ -1192,7 +1217,7 @@ form#banner_form.desktop {
 
   #highlights .img_discalimer {
     left: 12px !important;
-    bottom: 52px !important;
+    bottom: 16px !important;
     max-width: 80% !important;
   }
 
@@ -1203,6 +1228,44 @@ form#banner_form.desktop {
 
   #highlights .owl-nav {
     display: none !important;
+  }
+
+  #highlights .owl-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 0 !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  #highlights .owl-dots .owl-dot {
+    display: inline-block !important;
+  }
+
+  #highlights .owl-dots .owl-dot span {
+    display: block !important;
+    width: 8px !important;
+    height: 8px !important;
+    margin: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(27, 46, 29, 0.25) !important;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  #highlights .owl-dots .owl-dot.active span {
+    background: var(--gold) !important;
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 575px) {
+  #highlights .highlights_img img,
+  #highlights .owl-item img,
+  #highlights .owl-item .highlights_img img {
+    height: 220px !important;
+    min-height: 200px !important;
   }
 }
 
