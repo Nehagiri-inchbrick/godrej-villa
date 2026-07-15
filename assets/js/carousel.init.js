@@ -52,25 +52,18 @@ var owl_gallery_slider = $('#owl_gallery_slider');
 owl_gallery_slider.owlCarousel({
   loop: true,
   nav: true,
+  dots: false,
   lazyLoad: true,
-  autoplay: false,
-  margin: 10,
+  autoplay: true,
+  autoplayTimeout: 4500,
+  autoplayHoverPause: true,
+  margin: 0,
+  items: 1,
+  smartSpeed: 900,
   navText: [
-    '<div id="serene_gallery_slider_prev_btn" class="owl-prev-btn"><img src="./assets/icons/left_arrow_btn.svg"></div><div><p class="prev_btn">Prev</p></div>',
-    '<div id="serene_gallery_slider_next_btn" class="owl-next-btn"><img src="./assets/icons/left_arrow_btn.svg"></div><div><p class="next_btn">Next</p></div>'
-  ],
-  smartSpeed: 1500,
-  responsive: {
-    0: {
-      items: 1,
-    },
-    600: {
-      items: 2
-    },
-    1000: {
-      items: 3
-    }
-  }
+    '<i class="fa-solid fa-chevron-left"></i>',
+    '<i class="fa-solid fa-chevron-right"></i>'
+  ]
 });
 $("#owl_clubhouse_slider").owlCarousel({
   loop: true,
