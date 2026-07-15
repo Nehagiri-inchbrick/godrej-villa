@@ -515,21 +515,23 @@
           <div class="plan_intro Godrej Whitefield villa">
             <span class="plan_eyebrow">Layout</span>
             <h2>Master Plan</h2>
-            <p>Explore the villa layout crafted for space, privacy &amp; French-inspired living</p>
+            <p>Tap a plan to enquire and unlock the detailed villa layout</p>
           </div>
 
           <div class="plan_showcase">
-            <a href="assets/images/plan/3bhk-2t/3bhk-2t-15.jpg" class="plan_frame image-popup"
-              aria-label="View villa floor plan">
-              <img loading="lazy" decoding="async" src="assets/images/plan/3bhk-2t/3bhk-2t-15.jpg"
-                alt="Godrej Whitefield Villa Floor Plan">
-              <span class="plan_zoom"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            <a href="#enquire_price" class="plan_frame popup-link"
+              aria-label="Enquire about villa floor plan">
+              <img loading="lazy" decoding="async" src="images/plan1.jpeg"
+                alt="Godrej Whitefield Villa Floor Plan" width="733" height="394">
+              <span class="plan_veil" aria-hidden="true"></span>
+              <span class="plan_zoom"><i class="fa-solid fa-lock"></i> Enquire to View</span>
             </a>
-            <a href="assets/images/plan/3bhk-2t/3bhk-2t-16.jpg" class="plan_frame image-popup"
-              aria-label="View villa floor plan alternate">
-              <img loading="lazy" decoding="async" src="assets/images/plan/3bhk-2t/3bhk-2t-16.jpg"
-                alt="Godrej Whitefield Villa Floor Plan">
-              <span class="plan_zoom"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            <a href="#enquire_price" class="plan_frame popup-link"
+              aria-label="Enquire about villa floor plan">
+              <img loading="lazy" decoding="async" src="images/plan2.jpeg"
+                alt="Godrej Whitefield Villa Floor Plan" width="801" height="485">
+              <span class="plan_veil" aria-hidden="true"></span>
+              <span class="plan_zoom"><i class="fa-solid fa-lock"></i> Enquire to View</span>
             </a>
           </div>
         </div>
@@ -555,41 +557,30 @@
 
           <div id="owl_gallery_slider" class="owl-carousel owl-theme gallery_slider img-gallery">
             <div class="item">
-              <a href="assets/images/gallery/webp/gallery-img-1.jpg" title="Villa Elevation">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/gallery-img-1.jpg" alt="Villa Elevation">
-                <span class="gallery_caption">Villa Elevation</span>
+              <a href="images/european.png" title="Villa Elevation">
+                <img loading="lazy" decoding="async" src="images/european.png" alt="Villa Elevation">
+                
               </a>
             </div>
             <div class="item">
-              <a href="assets/images/gallery/webp/club-front-cam.jpg" title="Clubhouse">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/club-front-cam.jpg" alt="Clubhouse">
-                <span class="gallery_caption">Clubhouse</span>
+              <a href="images/row villas.png" title="Clubhouse">
+                <img loading="lazy" decoding="async" src="images/row villas.png" alt="Clubhouse">
+               
               </a>
             </div>
             <div class="item">
-              <a href="assets/images/gallery/webp/building-cam.jpg" title="Streetscape">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/building-cam.jpg" alt="Streetscape">
-                <span class="gallery_caption">Streetscape</span>
+              <a href="images/soukya.png" title="Streetscape">
+                <img loading="lazy" decoding="async" src="images/soukya.png" alt="Streetscape">
+               
               </a>
             </div>
             <div class="item">
-              <a href="assets/images/gallery/webp/balcony-view.jpg" title="Balcony View">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/balcony-view.jpg" alt="Balcony View">
-                <span class="gallery_caption">Balcony View</span>
+              <a href="images/club house.png" title="Balcony View">
+                <img loading="lazy" decoding="async" src="images/club house.png" alt="Balcony View">
+              
               </a>
             </div>
-            <div class="item">
-              <a href="assets/images/gallery/webp/top-pool.jpg" title="Pool Deck">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/top-pool.jpg" alt="Pool Deck">
-                <span class="gallery_caption">Pool Deck</span>
-              </a>
-            </div>
-            <div class="item">
-              <a href="assets/images/gallery/webp/gallery-img-a.jpg" title="Lifestyle">
-                <img loading="lazy" decoding="async" src="assets/images/gallery/webp/gallery-img-a.jpg" alt="Lifestyle">
-                <span class="gallery_caption">Lifestyle</span>
-              </a>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -661,32 +652,34 @@
           </div>
         </div>
       </form>
-      <form id="enquire_price" class="mfp-hide white-popup-block">
-        <div class="section_title text-center">
-          <h3>ENQUIRE NOW</h3>
+      <form id="enquire_price" class="mfp-hide white-popup-block enquire_modal">
+        <div class="enquire_modal_accent" aria-hidden="true"></div>
+        <div class="section_title text-center enquire_modal_head">
+          <span class="enquire_modal_eyebrow">Godrej Whitefield Villa</span>
+          <h3>Enquire Now</h3>
+          <p>Share your details for pricing &amp; floor plan access</p>
         </div>
         <div class="form_box">
           <div class="form_input name">
-            <input class="form_input" type="text" id="form_input_name" name="name" placeholder="Name" required>
+            <input class="form_input" type="text" id="form_input_name" name="name" placeholder="Full Name" required>
           </div>
           <div class="form_input email">
-            <input class="form_input" type="email" id="form_input_email" name="email" placeholder="Email" required>
+            <input class="form_input" type="email" id="form_input_email" name="email" placeholder="Email Address" required>
           </div>
           <div class="form_input">
             <input type="hidden" name="country_code" id="country_code_form" value="91">
-            <input class="form_input phone" type="tel" id="form_input_phone" name="phone" placeholder="Phone" required>
+            <input class="form_input phone" type="tel" id="form_input_phone" name="phone" placeholder="Phone Number" required>
           </div>
           <label class="checkbox-inline">
             <input type="checkbox" name="terms_and_conditions" value="check" id="agree" checked="checked" required=""
               aria-required="true">
             <div class="privacy_policy_tc">
-              I have read and understood the <a href="#privacy_policy_content" class="popup-link">Privacy Policy.</a>
-
-              <a href="#privacy_policy_content" class="popup-link">T&amp;C</a>.
+              I have read and understood the <a href="#privacy_policy_content" class="popup-link">Privacy Policy</a>
+              &amp; <a href="#privacy_policy_content" class="popup-link">T&amp;C</a>.
             </div>
           </label>
           <div class="form_submit_btn">
-            <input class="form_input" type="button" id="form_input_submit_enq" value="Submit">
+            <input class="form_input" type="button" id="form_input_submit_enq" value="Request Details">
             <div class="submit_loading_btn loading" style="display: none;">
             </div>
           </div>

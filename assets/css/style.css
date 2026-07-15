@@ -1676,69 +1676,252 @@ a.enquire_now_btn:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 22px;
+  align-items: start;
+  justify-items: center;
 }
 
 .plan_frame {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 14px;
   background: #fff;
   border: 1px solid rgba(200, 164, 93, 0.35);
-  box-shadow: 0 22px 48px rgba(27, 46, 29, 0.1);
+  box-shadow: 0 16px 36px rgba(27, 46, 29, 0.08);
   text-decoration: none;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  transition: box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .plan_frame::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1px solid rgba(200, 164, 93, 0.25);
-  border-radius: 12px;
-  pointer-events: none;
-  z-index: 2;
+  display: none !important;
 }
 
 .plan_frame img {
   width: 100% !important;
+  max-width: 100% !important;
   height: auto !important;
   display: block;
   background: #fff;
-  transition: transform 0.6s var(--ease);
+  margin: 0 auto;
+  filter: blur(7px) brightness(0.92) saturate(0.85) !important;
+  transform: scale(1.06) !important;
+  transition: filter 0.4s var(--ease), transform 0.4s var(--ease) !important;
+}
+
+.plan_veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(27, 46, 29, 0.18) 0%, rgba(27, 46, 29, 0.42) 100%);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  pointer-events: none;
 }
 
 .plan_zoom {
   position: absolute;
   left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 10px;
+  padding: 14px 22px;
   border-radius: 999px;
-  background: rgba(27, 46, 29, 0.88);
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-2) 100%);
   color: var(--gold);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  opacity: 1;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
   z-index: 3;
   white-space: nowrap;
+  pointer-events: none;
+  border: 1px solid rgba(200, 164, 93, 0.55);
+  box-shadow: 0 12px 28px rgba(27, 46, 29, 0.28);
 }
 
 .plan_frame:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 56px rgba(27, 46, 29, 0.16);
+  transform: none;
+  border-color: rgba(200, 164, 93, 0.65);
+  box-shadow: 0 22px 48px rgba(27, 46, 29, 0.16);
 }
 
-.plan_frame:hover img { transform: scale(1.03); }
+.plan_frame:hover img {
+  filter: blur(9px) brightness(0.88) saturate(0.8) !important;
+  transform: scale(1.08) !important;
+}
+
 .plan_frame:hover .plan_zoom {
   opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
+  transform: translate(-50%, -50%) scale(1.04);
+  box-shadow: 0 16px 36px rgba(27, 46, 29, 0.36);
+}
+
+/* Attractive enquire popup */
+form#enquire_price.enquire_modal,
+.mfp-content form#enquire_price.enquire_modal {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: min(420px, calc(100vw - 32px)) !important;
+  max-width: 420px !important;
+  margin: 40px auto !important;
+  padding: 36px 28px 28px !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(165deg, #fffefb 0%, var(--cream) 55%, var(--cream-2) 100%) !important;
+  border: 1px solid rgba(200, 164, 93, 0.4) !important;
+  box-shadow:
+    0 28px 64px rgba(27, 46, 29, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset !important;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.enquire_modal_accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-2), var(--gold), var(--gold-2));
+}
+
+.enquire_modal_head {
+  margin-bottom: 22px !important;
+}
+
+.enquire_modal_eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+form#enquire_price.enquire_modal .enquire_modal_head h3,
+form#enquire_price.enquire_modal .section_title h3 {
+  margin: 0 0 8px !important;
+  font-family: var(--display) !important;
+  font-size: clamp(26px, 4vw, 32px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--forest) !important;
+  border: none !important;
+  text-transform: none !important;
+}
+
+form#enquire_price.enquire_modal .enquire_modal_head p {
+  margin: 0 auto !important;
+  max-width: 280px;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--muted) !important;
+}
+
+form#enquire_price.enquire_modal .form_box {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px;
+}
+
+form#enquire_price.enquire_modal .form_input.name,
+form#enquire_price.enquire_modal .form_input.email,
+form#enquire_price.enquire_modal .form_box > .form_input {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+form#enquire_price.enquire_modal input.form_input:not([type="button"]):not([type="submit"]) {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(27, 46, 29, 0.14) !important;
+  background: #fff !important;
+  color: var(--forest) !important;
+  font-family: var(--body) !important;
+  font-size: 15px !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+form#enquire_price.enquire_modal input.form_input::placeholder {
+  color: #8a958d !important;
+}
+
+form#enquire_price.enquire_modal input.form_input:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 3px rgba(200, 164, 93, 0.22) !important;
+  outline: none !important;
+}
+
+form#enquire_price.enquire_modal .checkbox-inline {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 0 2px !important;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted) !important;
+}
+
+form#enquire_price.enquire_modal .privacy_policy_tc {
+  color: var(--muted) !important;
+}
+
+form#enquire_price.enquire_modal .privacy_policy_tc a {
+  color: var(--gold-2) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+form#enquire_price.enquire_modal .form_submit_btn {
+  margin-top: 6px !important;
+  width: 100% !important;
+}
+
+form#enquire_price.enquire_modal .form_submit_btn input.form_input,
+form#enquire_price.enquire_modal #form_input_submit_enq {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 15px 20px !important;
+  border: none !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-2) 100%) !important;
+  color: var(--gold) !important;
+  font-family: var(--body) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(27, 46, 29, 0.22);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s ease !important;
+}
+
+form#enquire_price.enquire_modal .form_submit_btn input.form_input:hover,
+form#enquire_price.enquire_modal #form_input_submit_enq:hover {
+  background: linear-gradient(135deg, var(--forest-2) 0%, #2f4a33 100%) !important;
+  box-shadow: 0 16px 34px rgba(27, 46, 29, 0.3);
+  transform: translateY(-1px);
 }
 
 #plan .plan_tabs,
@@ -1858,8 +2041,22 @@ a.enquire_now_btn:hover {
 @media (max-width: 991px) {
   .plan_showcase {
     grid-template-columns: 1fr;
-    max-width: 560px;
+    max-width: 480px;
     margin: 0 auto;
+  }
+
+  .plan_frame {
+    max-width: 100%;
+  }
+
+  .plan_frame img {
+    filter: blur(6px) brightness(0.92) saturate(0.85) !important;
+  }
+
+  .plan_zoom {
+    opacity: 1;
+    font-size: 11px;
+    padding: 12px 18px;
   }
 }
 
@@ -1889,7 +2086,15 @@ a.enquire_now_btn:hover {
 
   .plan_zoom {
     opacity: 1;
-    bottom: 16px;
+    white-space: normal;
+    text-align: center;
+    max-width: calc(100% - 28px);
+  }
+
+  form#enquire_price.enquire_modal,
+  .mfp-content form#enquire_price.enquire_modal {
+    padding: 30px 20px 22px !important;
+    margin: 24px auto !important;
   }
 }
 
