@@ -639,32 +639,28 @@ $(document).ready(function () {
 
   if ($(window).width() <= 767) {
     var $carousel = $(".highlights_wrapper");
-    $(".highlights_img").removeClass("active");
-    $carousel.addClass("owl-carousel owl-theme").owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: true,
-      center: true,
-      smartSpeed: 800,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true,
-      touchDrag: true,
-      mouseDrag: true,
-      lazyLoad: true,
-      navText: [
-        '<i class="fa-solid fa-arrow-left"></i>',
-        '<i class="fa-solid fa-arrow-right"></i>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-        },
-        480: {
-          items: 2,
-        },
-      },
-    });
+    if ($carousel.length && !$carousel.hasClass("owl-loaded")) {
+      $carousel.find(".highlights_img").css({
+        position: "relative",
+        opacity: 1,
+        left: "auto",
+        display: "block",
+      });
+      $carousel.addClass("owl-carousel owl-theme").owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        dots: true,
+        center: false,
+        items: 1,
+        smartSpeed: 700,
+        autoplay: true,
+        autoplayTimeout: 3500,
+        autoplayHoverPause: true,
+        touchDrag: true,
+        mouseDrag: true,
+      });
+    }
   }
 
   $(".video_wrapper").owlCarousel({
